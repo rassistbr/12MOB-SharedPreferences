@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.rm31675.persistencia.dao.LivroDAO;
+import com.example.rm31675.persistencia.model.Livro;
+
 public class LivrosActivity extends AppCompatActivity {
 
     @Override
@@ -24,6 +27,28 @@ public class LivrosActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+//        LivroDAO dao = new LivroDAO();
+  //      dao.carregaDados();
+
+        seed();
+
+    }
+
+    public void seed() {
+        LivroDAO dao = new LivroDAO();
+
+        Livro android = new Livro();
+        android.setAutor("Ricardo Lachetta");
+        android.setEditora("Novatec");
+        android.setTitulo("Google Android");
+        dao.insereDado(android);
+
+        Livro torreNegra = new Livro();
+        torreNegra.setAutor("A Torre Negra");
+        torreNegra.setEditora("AchoSuma");
+        torreNegra.setTitulo("Rober Torres");
+        dao.insereDado(torreNegra);
     }
 
 }
